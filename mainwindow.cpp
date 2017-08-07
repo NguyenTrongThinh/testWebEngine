@@ -57,6 +57,32 @@ void MainWindow::SetMarker(double east, double north, QString caption)
 
 }
 
+void MainWindow::Route(double oeast, double onorth, double deast, double dnorth, QString trvalMode)
+{
+//    QString str =
+//        QString("map.drawRoute({") +
+//        QString("origin: [%1, %2],").arg(oeast).arg(onorth) +
+//        QString("destination: [%1, %2],").arg(deast).arg(dnorth) +
+//        QString("travelMode: '%1',").arg(trvalMode) +
+//        QString("strokeColor: '#131540',") +
+//        QString("strokeOpacity: 0.6,") +
+//        QString("strokeWeight: 6") +
+//        QString("});");
+//        qDebug() << str;
+    QString str =
+               QString("var orig = new google.maps.LatLng(37.388769, -122.158954);") +
+               QString("var dest = new google.maps.LatLng(37.391979, -122.167891);") +
+               QString("var routeOptions = {") +
+                   QString("origin: orig,") +
+                   QString("destination: dest,") +
+                   QString("travelMode: google.maps.TravelMode.DRIVING") +
+               QString("};") +
+               QString("service = new google.maps.DirectionsService();") +
+               QString("service.route(routeOptions, handleDirections);");
+        qDebug() << str;
+        view->page()->runJavaScript(str);
+}
+
 void MainWindow::replyFinished(QNetworkReply *reply)
 {
     QByteArray json = reply->readAll();
@@ -95,4 +121,5 @@ void MainWindow::replyFinished(QNetworkReply *reply)
 void MainWindow::on_btnHome_clicked()
 {
     getCoordinates("Ho Chi Minh City, Viet Nam");
+    //Route(-12.044012922866312, -77.02470665341184, -12.090814532191756, -77.02271108990476, "driving");
 }

@@ -31,6 +31,7 @@ private:
     void getCoordinates(const QString& address);
     void showCoordinates(double east, double north, bool saveMarker);
     void SetMarker(double east, double north, QString caption);
+    void Route(double oeast, double onorth, double deast, double dnorth, QString trvalMode);
 private slots:
     void replyFinished(QNetworkReply* reply);
     void on_btnHome_clicked();

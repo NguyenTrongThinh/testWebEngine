@@ -3,7 +3,6 @@
         <file>google_maps.html</file>
     </qresource>
     <qresource prefix="/">
-        <file>E:/RibbonSource/About50.png</file>
         <file>resource/About50.png</file>
         <file>resource/bluedot.png</file>
     </qresource>
