@@ -11,7 +11,7 @@ greaterThan(QT_MAJOR_VERSION, 4): QT += widgets
 TARGET = testWebEngine
 TEMPLATE = app
 
-target.path=/home/root
+target.path=/usr/bin
 INSTALLS += target
 SOURCES += main.cpp\
         mainwindow.cpp
